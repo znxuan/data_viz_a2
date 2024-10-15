@@ -17,7 +17,7 @@ function loadData(url) {
 }
 
 // URL for the CSV dataset
-const csvUrl = 'https://raw.githubusercontent.com/znxuan/data_viz_vegalite/refs/heads/main/revenue-of-the-leading-10-beauty-manufacturers-worldwide-2023.csv';
+const csvUrl = 'https://raw.githubusercontent.com/znxuan/data_viz_a2/refs/heads/main/revenue-of-the-leading-10-beauty-manufacturers-worldwide-2023.csv';
 
 // Load and process the data
 loadData(csvUrl).then((dataSet) => {
