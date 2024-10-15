@@ -1,0 +1,46 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "description": "A box plot showing the price distribution for all beauty product categories.",
+    "width": 850,
+    "height": 300,
+    "padding": 30,
+    "data": {
+      "url": "https://raw.githubusercontent.com/znxuan/data_viz_vegalite/refs/heads/main/most_used_beauty_cosmetics_products_extended.csv",
+      "format": {"type": "csv"}
+    },
+    "transform": [
+      {
+        "calculate": "indexof(['BB Cream', 'Blush', 'Bronzer', 'CC Cream', 'Concealer', 'Contour', 'Eye Shadow', 'Eyeliner', 'Foundation', 'Highlighter', 'Lip Gloss', 'Lip Liner', 'Lipstick', 'Makeup Remover', 'Mascara', 'Powder', 'Setting Spray'], datum.Category) > -1 ? 'Makeup' : 'Skincare'",
+        "as": "Category Type"
+      }
+    ],
+    "mark": "boxplot",
+    "encoding": {
+      "x": {
+        "field": "Category",
+        "type": "nominal",
+        "title": "Product Category",
+        "axis": {"labelAngle": 90}
+      },
+      "y": {
+        "field": "Rating",
+        "type": "quantitative",
+        "title": "Rating"
+      },
+      "color": {
+        "field": "Category Type",
+        "type": "nominal",
+        "scale": {
+          "domain": ["Makeup", "Skincare"],
+          "range": ["#eacfc8", "#9ecae1"]
+        },
+        "legend": {
+          "title": "Category Type",
+          "orient": "right",
+          "symbolStrokeColor": "#000",
+          "symbolType": "square"
+        }
+      }
+    }
+  }
+  

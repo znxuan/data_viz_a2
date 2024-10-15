@@ -1,0 +1,101 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 440,
+  "height": 300,
+  "data": {
+    "url": "https://raw.githubusercontent.com/znxuan/data_viz_vegalite/refs/heads/main/age_demographic.csv"
+  },
+  "layer": [
+    {
+      "mark": {
+        "type": "arc",
+        "innerRadius": 80
+      },
+      "encoding": {
+        "theta": {
+          "field": "Percent Usage",
+          "type": "quantitative"
+        },
+        "color": {
+          "field": "Age Group (Women)",
+          "type": "nominal",
+          "scale": {
+            "range": [
+              "#99d8c9",  
+              "#fdbb84",  
+              "#a6bddb",  
+              "#f4a6c1", 
+              "#c7e9b4", 
+              "#ffdd71"   
+            ]
+          }
+        },
+        "tooltip": [
+          {"field": "Age Group (Women)", "type": "nominal", "title": "Age Group"},
+          {"field": "Percent Usage", "type": "quantitative", "title": "Percent Usage (%)"}
+        ]
+      }
+    },
+    {
+      "mark": {"type": "text", "fontSize": 14, "fontWeight": "bold"},
+      "encoding": {
+        "text": {"field": "Percent Usage", "type": "quantitative"},
+        "x": {"value": 250},  
+        "y": {"value": 50}, 
+        "color": {"value": "black"}
+      },
+      "transform": [{"filter": "datum['Age Group (Women)'] == '18-24'"}]
+    },
+    {
+      "mark": {"type": "text", "fontSize": 14, "fontWeight": "bold"},
+      "encoding": {
+        "text": {"field": "Percent Usage", "type": "quantitative"},
+        "x": {"value": 315},  
+        "y": {"value": 140}, 
+        "color": {"value": "black"}
+      },
+      "transform": [{"filter": "datum['Age Group (Women)'] == '25-34'"}]
+    },
+    {
+      "mark": {"type": "text", "fontSize": 14, "fontWeight": "bold"},
+      "encoding": {
+        "text": {"field": "Percent Usage", "type": "quantitative"},
+        "x": {"value": 250}, 
+        "y": {"value": 255},  
+        "color": {"value": "black"}
+      },
+      "transform": [{"filter": "datum['Age Group (Women)'] == '35-44'"}]
+    },
+    {
+      "mark": {"type": "text", "fontSize": 14, "fontWeight": "bold"},
+      "encoding": {
+        "text": {"field": "Percent Usage", "type": "quantitative"},
+        "x": {"value": 125},  
+        "y": {"value": 250}, 
+        "color": {"value": "black"}
+      },
+      "transform": [{"filter": "datum['Age Group (Women)'] == '45-54'"}]
+    },
+    {
+      "mark": {"type": "text", "fontSize": 14, "fontWeight": "bold"},
+      "encoding": {
+        "text": {"field": "Percent Usage", "type": "quantitative"},
+        "x": {"value": 80}, 
+        "y": {"value": 130},  
+        "color": {"value": "black"}
+      },
+      "transform": [{"filter": "datum['Age Group (Women)'] == '55-64'"}]
+    },
+    {
+      "mark": {"type": "text", "fontSize": 14, "fontWeight": "bold"},
+      "encoding": {
+        "text": {"field": "Percent Usage", "type": "quantitative"},
+        "x": {"value": 140}, 
+        "y": {"value": 50},  
+        "color": {"value": "black"}
+      },
+      "transform": [{"filter": "datum['Age Group (Women)'] == '65-74'"}]
+    }
+  ],
+  "view": {"stroke": null}
+}

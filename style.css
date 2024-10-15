@@ -1,0 +1,166 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* Set light beige background for the entire body */
+body {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-color: #f9f8f3; /* Light beige background */
+    margin: 0; 
+    padding: 0;
+	padding-left: 40px;
+	font-size: 14px;
+}
+
+/* Center the title */
+h1 {
+    text-align: center; /* Center align the title */
+    font-size: 2.2em; /* Slightly larger for prominence */
+    margin-bottom: 25px; /* Spacing below the title */
+    margin-top: 40px; /* Increase spacing at the top */
+    font-family: 'Georgia', 'Times New Roman', serif; /* Use a serif font */
+    font-weight: bold; /* Make the title stand out */
+    color: #4a3f35; /* A rich, dark brown color for contrast */
+    padding: 10px;
+    background-color: #f4eae2; /* Subtle background color to make the title pop */
+    border-radius: 8px; /* Rounded corners for a softer look */
+    border: 1px solid #d4bfb2; /* Soft border matching the theme */
+}
+
+
+/* Center the choropleth map */
+#choropleth_map {
+    display: flex;  /* Use Flexbox */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    width: 100%; /* Ensure the map takes full width */
+    height: 500px; /* Keep a consistent height */
+    margin: 0 auto; /* Center the entire element */
+}
+
+/* Style each chart container with white background, padding, and rounded corners */
+.chart-container {
+    background-color: white;
+    padding: 10px; /* Reduce padding */
+    margin-bottom: 10px; /* Reduce margin between chart containers */
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+	padding-right: 80px;
+}
+
+
+.flex-item {
+    flex: 1;
+    margin: 0; /* Ensure no margin between flex items */
+    padding: 0;
+}
+
+
+/* Full width for the choropleth map and other single-chart elements */
+.full-width {
+    width: 100%;
+    margin: 0;
+}
+
+/* Fix the height for all charts to ensure uniformity */
+#pie_chart, #radar_chart, #container, #word_cloud #box_plot{
+    height: 500px;
+    width: 100%; /* Ensure the charts take full width */
+}
+
+#donut_chart {
+    height: 500px;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    display: block; /* Ensure it takes full width and height */
+}
+
+.highlight-brown {
+    color: #e9997c;
+    font-weight: bold; /* Optional: Make the highlighted text bold */
+}
+
+.highlight-orange {
+    color: darkorange;
+    font-weight: bold; /* Optional: Make the highlighted text bold */
+}
+
+/* Footer styling */
+.footer {
+    text-align: center;
+    padding: 10px;
+    font-size: 14px;
+    background-color: #f1f1f1;
+    margin-top: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.analysis_section {
+    max-width: 400px;
+    text-align: left;
+    margin-right: 20px; /* Add some space between the description and the chart */
+}
+
+.flex-container {
+    display: flex;
+    justify-content: space-between; /* Horizontally space between items */
+    align-items: center; /* Vertically center items */
+    flex-wrap: nowrap; /* Prevent wrapping */
+    margin: 0;
+    padding: 0;
+	padding-left: 40px;
+}
+
+.analyse-section {
+    width: 40%; /* Set width for the analysis text */
+    padding-left: 40px; /* Add some space between the chart and text */
+    text-align: left; /* Left-align the paragraph */
+}
+
+
+.chart-title-box {
+    font-family: 'Georgia', serif; /* Use a serif font */
+    font-size: 1.5em; /* Adjust the size to match */
+    font-weight: bold; /* Make it bold */
+    text-align: center; /* Center the title */
+    margin-bottom: 10px; /* Add some space below */
+    padding-bottom: 5px; /* Add padding below for spacing */
+    border-bottom: 2px solid #cccccc; /* Add a grey line under the title */
+    color: #444444; /* Dark grey color for the text */
+}
+
+.attribution {
+    text-align: center; /* Center the text */
+    font-size: 14px; /* Slightly smaller font size */
+    color: #0c0101; /* Light grey for text color */
+    margin-top: 30px; /* Add spacing at the top */
+    padding: 20px; /* Padding around the text */
+    background-color: #f1f1f1; /* Light background color */
+    border-top: 1px solid #ccc; /* Light top border for separation */
+    border-radius: 10px;
+}
+
+.attribution a {
+    color: #007bff; /* Link color to match your theme */
+    text-decoration: none; /* Remove underline */
+}
+
+.attribution a:hover {
+    text-decoration: underline; /* Underline links on hover */
+}
+
+
+
+
+

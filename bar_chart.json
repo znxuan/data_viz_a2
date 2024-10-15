@@ -1,0 +1,76 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "data": {
+    "url": "https://raw.githubusercontent.com/znxuan/data_viz_vegalite/refs/heads/main/sales_channel.csv"
+  },
+  "transform": [
+    {
+      "fold": ["Offline", "Online"],  
+      "as": ["Sales Channel", "value"]
+    },
+    {
+      "lookup": "Year",
+      "from": {
+        "data": {
+          "url": "https://raw.githubusercontent.com/znxuan/data_viz_vegalite/refs/heads/main/revenue_worldwide.csv"
+        },
+        "key": "Year",
+        "fields": ["Revenue ($ bn)"]
+      }
+    },
+    {
+      "calculate": "datum['value'] / 100 * datum['Revenue ($ bn)']",
+      "as": "Channel Revenue"
+    },
+    {
+      "calculate": "datum['Sales Channel'] == 'Offline' ? 0 : 1",
+      "as": "StackOrder"  
+    }
+  ],
+  "width": 400,
+  "height": 300,
+  "layer": [
+    {
+      "mark": {"type": "bar"},
+      "encoding": {
+        "x": {
+          "field": "Year",
+          "type": "ordinal",
+          "axis": { "title": "Year" }
+        },
+        "y": {
+          "field": "Channel Revenue",
+          "type": "quantitative",
+          "axis": { "title": "Revenue ($ bn)" },
+          "stack": "zero"
+        },
+        "color": {
+          "field": "Sales Channel",
+          "type": "nominal",
+          "scale": { "range": ["#a6bddb", "#fdae6b"] },   
+          "legend": { "title": "Sales Channel" }
+        },
+        "order": {"field": "StackOrder", "type": "quantitative"},
+        "tooltip": [
+          { "field": "Year", "type": "ordinal", "title": "Year" },
+          { "field": "Sales Channel", "type": "nominal", "title": "Sales Channel" },
+          { "field": "Channel Revenue", "type": "quantitative", "title": "Revenue ($bn)" },
+          { "field": "Revenue ($ bn)", "type": "quantitative", "title": "Total Revenue ($bn)" }
+        ]
+      }
+    },
+    {
+      "mark": {
+        "type": "text", 
+        "dy": -5, 
+        "fontWeight": "bold", 
+        "color": "black"  
+      },
+      "encoding": {
+        "x": {"field": "Year", "type": "ordinal"},
+        "y": {"field": "Channel Revenue", "type": "quantitative", "stack": "zero"},
+        "text": {"field": "Channel Revenue", "type": "quantitative", "format": ".1f"}
+      }
+    }
+  ]
+}

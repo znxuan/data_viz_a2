@@ -1,0 +1,90 @@
+{
+    "$schema": "https://vega.github.io/schema/vega/v5.json",
+    "description": "A word cloud visualization for beauty product categories.",
+    "width": 600,
+    "height": 300,
+    "padding": 0,
+    "data": [
+      {
+        "name": "table",
+        "url": "https://raw.githubusercontent.com/znxuan/data_viz_vegalite/refs/heads/main/most_used_beauty_cosmetics_products_extended.csv",
+        "format": {"type": "csv", "delimiter": ","},
+        "transform": [
+          {
+            "type": "aggregate",
+            "groupby": ["Category"],
+            "fields": ["Category"],
+            "ops": ["count"],
+            "as": ["count"]
+          },
+          {
+            "type": "formula",
+            "as": "weight",
+            "expr": "if(datum.count > 27, 700,400 )"
+          }
+        ]
+      }
+    ],
+    "scales": [
+      {
+        "name": "color",
+        "type": "ordinal",
+        "domain": {"data": "table", "field": "Category"},
+        "range": [
+          "#d5a928",
+          "#652c90",
+          "#939597",
+          "#1f77b4",
+          "#ff7f0e",
+          "#2ca02c",
+          "#9467bd",
+          "#8c564b",
+          "#e377c2",
+          "#7f7f7f",
+          "#bcbd22",
+          "#17becf",
+          "#bdbdbd",
+          "#ff9896",
+          "#9edae5",
+          "#ffbb78",
+          "#98df8a",
+          "#c49c94",
+          "#c5b0d5",
+          "#aec7e8",
+          "#f7b6d2",
+          "#dbdb8d",
+          "#ffcc00",
+          "#00cc99"
+        ]
+      }
+    ],
+    "marks": [
+      {
+        "type": "text",
+        "from": {"data": "table"},
+        "encode": {
+          "enter": {
+            "text": {"field": "Category"},
+            "align": {"value": "center"},
+            "baseline": {"value": "alphabetic"},
+            "fill": {"scale": "color", "field": "Category"}
+          },
+          "update": {"fillOpacity": {"value": 1}},
+          "hover": {"fillOpacity": {"value": 0.5}}
+        },
+        "transform": [
+          {
+            "type": "wordcloud",
+            "size": [550, 350],
+            "text": {"field": "Category"},
+            "font": "Helvetica Neue, Arial",
+            "fontSize": {"field": "datum.count"},
+            "fontWeight": {"field": "datum.weight"},
+            "fontSizeRange": [8, 30],
+            "padding":20,
+            "spiral": "rectangular"
+          }
+        ]
+      }
+    ]
+  }

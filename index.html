@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/vega@5.20.2"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.1.0"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.17.0"></script>
+    <script src="https://cdn.anychart.com/releases/v8/js/anychart-bundle.min.js"></script>
+    <script src="data_viz.js"></script>
+    <script src="treemap.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css"> <!-- Link to your style.css -->
+    <title>Global Beauty Industry Revenue</title>
+</head>
+
+<body>
+
+    <div class="container"> <!-- White box container -->
+        <h1>The Beauty Industry Unveiled: 
+            Global Revenue, Consumer Trends, and Market Leaders</h1>
+
+        <!-- Container for the map and charts -->
+        <div class="chart-container">
+            <div class="chart-title-box">
+                Mapping Global Beauty: A Billion-Dollar Industry
+            </div>
+            <div id="choropleth_map" class="full-width"></div>
+            <div class="analysis-section">
+                <p>
+                    In 2023, the <span class="highlight-brown">US</span> beauty industry reached <span class="highlight-brown">98 billion USD</span>, a rise from 86 billion in 2018, showing steady growth. <span class="highlight-brown">China</span> followed with <span class="highlight-brown">67 billion USD</span>, up from 55 billion, driven by increasing online sales.
+        
+                    <span class="highlight-brown">Japan's</span> beauty revenue saw slower growth, from 41 billion USD in 2018 to <span class="highlight-brown">47 billion</span> in 2023, indicating a more stable market compared to China.
+                </p>
+            </div>
+        </div>
+        
+
+        <div class="chart-container">
+            <div class="chart-title-box">
+                E-Commerce: The Driving Force Behind Beauty Sales
+            </div>
+            <div class="flex-container">
+                <div id="bar_chart" class="flex-item"></div>
+                <div class="analyse-section">
+                    <p>
+                    There is a steady overall increase in revenue for the beauty industry across the years, with a notable shift in sales channel dynamics. While both offline and online channels contribute to revenue, <span class="highlight-brown">the portion of online sales increases over time, particularly from 2022 onward</span>, indicating the growing significance of e-commerce in the beauty industry.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="chart-container">
+            <div class="chart-title-box">
+                Meet the Giants: Leading Beauty Manufacturers and Their Revenue
+            </div>
+            <div id="container"></div>
+                <div class="analysis-section">
+                    <p>
+                        This treemap highlights the dominance of <span class="highlight-brown">L'Oréal</span> in the beauty industry, leading with a substantial revenue of <span class="highlight-brown">$44.53 billion USD</span>, far ahead of competitors like Unilever and Procter & Gamble. L'Oréal's success can be attributed to its expansive portfolio of brands, global presence, and innovation in skincare, haircare, and makeup.
+                    </p>
+                    <p> 
+                        <span class="highlight-brown">Unilever and Procter & Gamble</span>, with a revenue of <span class="highlight-brown">26.15 billion USD and 15.2 billion USD</span>, though strong players, focus more on personal care and household products, contributing to their relatively smaller market share in beauty. 
+                    </p>
+            </div>
+        </div>
+
+        <div class="chart-container">
+            <div class="chart-title-box">
+                Beauty in Segments: Skincare, Cosmetics, and More
+            </div>
+            <div class="flex-container">
+                <div id="radar_chart" class="flex-item"></div>
+                <div class="analyse-section">
+                    <p>
+                    This radar chart highlights that <span class="highlight-brown">consumer preferences shifted towards skincare from 2011 to 2023</span>, with skincare <span class="highlight-brown">increasing from 31% to 40%</span>. Haircare saw a slight decline, while make-up remained stable. The chart underscores a growing focus on skincare in 2023 compared to previous years.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="chart-container">
+            <div class="chart-title-box">
+                What’s In Your Beauty Bag? The Most Purchased Products Globally
+            </div>
+            <div class="flex-container">
+            <div id="word_cloud" class="flex-item"></div>
+                <div class="analyse-section">
+                    <p>
+                    Products like <span class="highlight-brown"> "Foundation,"  stand out as prominent favorites</span>, reflecting their necessity in everyday makeup routines.  
+                    </p>
+                    <p>
+                    The prominence of these products reveals trends in consumer preferences, with makeup products dominating in visibility, indicating a higher demand on Makeup.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="chart-container">
+            <div class="chart-title-box">
+                Consumer Verdict: Product Ratings Across Beauty Categories
+            </div>
+            <div id="box_plot"></div>
+            <div class="analysis-section">
+                <p>
+                Skincare products, like <span class="highlight-brown">"Serum," generally receive higher and more consistent consumer ratings</span>, with some even reaching a perfect score of 5. Makeup products, such as <span class="highlight-brown">"Foundation," display a wider range of ratings, from as low as 1.7 to a high of 5</span>.  
+                </p>
+                <p>
+                Skincare tends to deliver more consistent satisfaction, likely due to its long-term benefits, while makeup products may vary more based on personal preferences and trends.
+                </p>
+        </div>
+    </div>
+
+    <div class="attribution">
+        <p>This visualization is created by Tan Zin Xuan.</p>
+        <p>Data Source: 
+            <a href="https://www.statista.com/markets/415/topic/467/cosmetics-personal-care/#statistic2" target="_blank">Statista: Cosmetics & Personal Care</a>, 
+            <a href="https://www.statista.com/outlook/cmo/beauty-personal-care/cosmetics/malaysia#revenue" target="_blank">Statista: Beauty & Personal Care in Malaysia</a>, 
+            <a href="https://helplama.com/beauty-industry-revenue-usage-statistics/" target="_blank">Helplama: Beauty Industry Statistics</a>, 
+            <a href="https://www.kaggle.com/datasets/waqi786/most-used-beauty-cosmetics-products-in-the-world" target="_blank">Kaggle: Most Used Beauty Cosmetics Products in the World</a>
+        </p>
+        <p>Author: 
+            Statista Research Department (for Statista sources), 
+            Helplama Research Team (for Helplama), 
+            Waqi Khan (for Kaggle).</p>
+    </div>
+    
+
+</body>
+
+</html>
