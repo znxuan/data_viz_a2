@@ -1,7 +1,7 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "data": {
-    "url": "https://raw.githubusercontent.com/znxuan/data_viz_vegalite/refs/heads/main/sales_channel.csv"
+    "url": "https://raw.githubusercontent.com/znxuan/data_viz_a2/refs/heads/main/sales_channel.csv"
   },
   "transform": [
     {
@@ -12,7 +12,7 @@
       "lookup": "Year",
       "from": {
         "data": {
-          "url": "https://raw.githubusercontent.com/znxuan/data_viz_vegalite/refs/heads/main/revenue_worldwide.csv"
+          "url": "https://raw.githubusercontent.com/znxuan/data_viz_a2/refs/heads/main/revenue_worldwide.csv"
         },
         "key": "Year",
         "fields": ["Revenue ($ bn)"]
