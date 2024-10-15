@@ -11,7 +11,7 @@
     "data": [
       {
         "name": "source",
-        "url": "https://raw.githubusercontent.com/znxuan/data_viz_vegalite/refs/heads/main/product_category_worldwide.csv",
+        "url": "https://raw.githubusercontent.com/znxuan/data_viz_a2/refs/heads/main/product_category_worldwide.csv",
         "format": {"type": "csv"},
         "transform": [
           {"type": "filter", "expr": "datum.Category !== 'Total'"},
